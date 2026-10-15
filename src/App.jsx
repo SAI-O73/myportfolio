@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CursorGlow from './components/CursorGlow';
 import BackgroundElements from './components/BackgroundElements';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
@@ -33,6 +34,9 @@ export default function App() {
         <Interests />
         <Contact />
       </main>
+
+      {/* Floating Scroll to Top Button (Bottom-Right) */}
+      <ScrollToTop />
 
       {/* Footer */}
       <Footer />
