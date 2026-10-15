@@ -61,8 +61,8 @@ export default function Footer() {
                 <span>{personalInfo.college}</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>{personalInfo.location}</span>
+                <MapPin className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>Location: {personalInfo.location}</span>
               </div>
             </div>
 
