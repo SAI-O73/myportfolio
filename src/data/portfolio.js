@@ -13,7 +13,7 @@ export const personalInfo = {
   location: "Gudlavalleru, Andhra Pradesh, India",
   email: "dsaimtm@gmail.com",
   phone: "8919086393",
-  formattedPhone: "+91 8919086393",
+  formattedPhone: "+91 891908****",
   socialUsername: "rowdysai_2112",
   socialUrl: "https://www.instagram.com/rowdysai_2112?stkn=MXViazVqeGYwYmttaQ%3D%3D",
   instagramUrl: "https://www.instagram.com/rowdysai_2112?stkn=MXViazVqeGYwYmttaQ%3D%3D",

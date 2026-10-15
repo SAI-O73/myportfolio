@@ -111,7 +111,7 @@ export default function Footer() {
                 className="flex items-center gap-2.5 text-slate-600 hover:text-blue-600 transition-colors font-medium"
               >
                 <Phone className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>+91 {personalInfo.phone}</span>
+                <span>{personalInfo.formattedPhone}</span>
               </a>
 
               <a
