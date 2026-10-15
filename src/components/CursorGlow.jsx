@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 /**
  * CursorGlow Component
- * Subtle, high-performance radial glow following the mouse on desktop devices.
+ * Subtle, high-performance radial blue glow following the mouse on desktop devices only.
+ * Strictly non-interactive (pointer-events-none) to never interfere with text selection or clicking.
  * Automatically disabled on touch screens and when prefers-reduced-motion is active.
  */
 export default function CursorGlow() {
-  const [position, setPosition] = useState({ x: -200, y: -200 });
+  const [position, setPosition] = useState({ x: -300, y: -300 });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check for touch capability or reduced motion preference
+    // Detect touch device or preference for reduced motion
     const isTouchDevice =
       'ontouchstart' in window ||
       navigator.maxTouchPoints > 0 ||
@@ -51,14 +52,14 @@ export default function CursorGlow() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed z-10 transition-opacity duration-500 ease-out hidden md:block"
+      className="pointer-events-none fixed z-10 transition-opacity duration-300 ease-out hidden md:block"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
         transform: 'translate(-50%, -50%)',
-        width: '500px',
-        height: '500px',
-        background: 'radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, rgba(129, 140, 248, 0.03) 40%, transparent 70%)',
+        width: '450px',
+        height: '450px',
+        background: 'radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.03) 45%, transparent 70%)',
       }}
     />
   );

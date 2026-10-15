@@ -154,9 +154,10 @@ export const developmentInterests = [
     iconName: "Globe",
     quote:
       "Interested in developing responsive websites, modern user interfaces, and interactive web applications using React and related technologies.",
-    color: "from-cyan-500/20 to-cyan-500/0",
-    borderColor: "border-cyan-500/30",
-    accentColor: "text-cyan-400",
+    color: "from-blue-600/10 via-blue-50 to-white",
+    borderColor: "border-blue-200 hover:border-blue-500",
+    accentColor: "text-blue-600",
+    badgeBg: "bg-blue-50 text-blue-700 border-blue-200",
     tags: ["React.js", "UI/UX", "Tailwind CSS", "JavaScript", "Vite", "Component Architecture"]
   },
   {
@@ -164,9 +165,10 @@ export const developmentInterests = [
     iconName: "Smartphone",
     quote:
       "Interested in learning Android application development and building useful mobile experiences.",
-    color: "from-indigo-500/20 to-indigo-500/0",
-    borderColor: "border-indigo-500/30",
-    accentColor: "text-indigo-400",
+    color: "from-blue-600/10 via-blue-50 to-white",
+    borderColor: "border-blue-200 hover:border-blue-500",
+    accentColor: "text-blue-600",
+    badgeBg: "bg-blue-50 text-blue-700 border-blue-200",
     tags: ["Java", "Android Studio", "XML UI", "Activities & Intents", "Mobile UX", "Native Apps"]
   }
 ];

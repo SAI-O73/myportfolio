@@ -9,18 +9,22 @@ import Interests from './components/Interests';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CursorGlow from './components/CursorGlow';
+import BackgroundElements from './components/BackgroundElements';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-navy-950 text-slate-100 font-sans selection:bg-cyan-400 selection:text-navy-950">
+    <div className="relative min-h-screen bg-white text-slate-600 font-sans selection:bg-blue-600 selection:text-white">
       {/* Subtle Desktop Mouse Glow */}
       <CursorGlow />
 
-      {/* Sticky Header Navigation */}
+      {/* Lightweight Ambient Blue Backlights */}
+      <BackgroundElements />
+
+      {/* Sticky Navigation Bar */}
       <Navbar />
 
-      {/* Main Content Sections */}
-      <main id="main-content">
+      {/* Main Sections */}
+      <main id="main-content" className="relative z-10">
         <Hero />
         <About />
         <Skills />

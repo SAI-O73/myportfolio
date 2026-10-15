@@ -1,20 +1,35 @@
 # D. Rama Venkata Sai — Developer Portfolio
 
-A modern, cinematic developer portfolio website built using **React.js + Vite**, **Tailwind CSS**, and **Framer Motion**. Designed for **D. Rama Venkata Sai**, a final-year Diploma in Computer Science student at **AANM & VVRSR Polytechnic College, Gudlavalleru**, aspiring in modern web development and Android programming.
+A premium, modern developer portfolio website built using **React.js + Vite**, **Tailwind CSS**, and **Framer Motion**, styled in an elegant **White + Royal Blue** professional theme.
+
+Designed for **D. Rama Venkata Sai**, a final-year Diploma in Computer Science student at **AANM & VVRSR Polytechnic College, Gudlavalleru**, aspiring in modern web development and Android programming.
 
 ---
 
-## 🌟 Live Features & Highlights
+## 🎨 Theme & Visual Design System
 
-- **Hero Section**: Personal introduction, animated developer code window, and direct actions to view projects, contact, or download the resume.
-- **About Me**: Academic background at AANM & VVRSR Polytechnic College, foundational computer science training, and key areas of interest.
-- **Technical Skills**: Grouped cards for Web Development, Android Development, and Development Tools with clean tags and no fabricated percentages.
-- **Featured Project — AI Gym Fitness**: Dedicated showcase for the college fitness web application with direct links to the [Live Website](http://fitness-073.vercel.app/) and [GitHub Repository](https://github.com/SAI-O73/gym-project).
-- **Education Timeline**: Final-year Diploma in Computer Science milestone with authentic course details.
-- **Development Interests**: Highlighting ongoing exploration in React web development and Android application programming.
-- **Interactive Contact Form**: Integrated with **EmailJS** (`@emailjs/browser`) with input validation, honeypot spam protection, loading state, and error handling.
-- **Design System**: Midnight navy background (`#0B1120`), dark slate surfaces (`#111827`), electric cyan accents (`#38BDF8`), Space Grotesk headings, and Inter body typography.
-- **Motion & Accessibility**: Fluid Framer Motion animations with full support for `prefers-reduced-motion` and keyboard navigation.
+- **Primary Background**: White (`#FFFFFF`)
+- **Primary Accent**: Royal Blue (`#2563EB`)
+- **Secondary Background**: Light Blue (`#EFF6FF` / `bg-blue-50`)
+- **Headings**: Dark Navy (`#0F172A`)
+- **Body Text**: Slate Gray (`#475569`)
+- **Typography**: **Plus Jakarta Sans** for headings, **Inter** for body text, and **JetBrains Mono** for technical code snippets and badges.
+- **Micro-interactions**: Hardware-accelerated hover effects, glassmorphic navigation, soft shadow depth, and full respect for `prefers-reduced-motion`.
+
+---
+
+## 🌟 Sections & Advanced Animations
+
+1. **Navbar**: Sticky entrance, active pill indicator with Framer Motion `layoutId`, smooth scrolling with offset, and a mobile drawer menu.
+2. **Hero Section**: Staggered text reveal, authentic CS diploma introduction, 3 action buttons (View Projects, Contact Me, Download Resume), and an interactive IDE code editor card with floating tech badges.
+3. **About Me**: Academic background at AANM & VVRSR Polytechnic College, avatar frame, core interest pills, and diploma coursework review notice.
+4. **Skills & Tooling**: Categorized cards (Web Development, Android Development, Development Tools) with clean tags and hover elevation.
+5. **Featured Project — AI Gym Fitness**: Dedicated showcase card for the college fitness web application with browser mockup, feature breakdowns, and live links to the [Live Website](http://fitness-073.vercel.app/) and [GitHub Repository](https://github.com/SAI-O73/gym-project).
+6. **Education Timeline**: Final-year Diploma in Computer Science milestone with authentic course details.
+7. **Development Interests**: Dedicated cards highlighting React web development and Android application programming.
+8. **Contact Form**: EmailJS-powered form with field validation, honeypot spam protection, loading state spinner, success/error banners, and direct contact cards.
+9. **Footer**: Quick navigation links, social profiles, GitHub repository link, dynamic copyright year, and a smooth back-to-top button.
+10. **Desktop Cursor & Backgrounds**: Subtle non-interfering royal blue glow and lightweight ambient background gradients.
 
 ---
 
@@ -22,137 +37,41 @@ A modern, cinematic developer portfolio website built using **React.js + Vite**,
 
 | Technology | Purpose |
 | :--- | :--- |
-| **React 18** | Modular component-driven frontend architecture |
-| **Vite** | Fast build tooling and local development server |
-| **Tailwind CSS** | Custom styling, design tokens, and responsive utilities |
-| **Framer Motion** | Controlled transitions, reveals, and interactive animations |
-| **Lucide React** | Consistent, modern developer and UI icons |
-| **EmailJS** | Client-side email dispatching without exposed server secrets |
-| **Vercel** | Production deployment platform |
+| **React 18** | Modular component-based frontend architecture |
+| **Vite** | Lightning-fast build tooling and local dev server |
+| **Tailwind CSS** | Styling, custom theme tokens, and responsive utility classes |
+| **Framer Motion** | Controlled, GPU-friendly transitions and scroll-triggered reveals |
+| **Lucide React** | Consistent, crisp developer and interface icons |
+| **EmailJS** | Direct client-side email delivery to `dsaimtm@gmail.com` |
+| **Vercel** | Production hosting platform |
 
 ---
 
-## 📁 Project Structure
+## 🚀 How to Run Locally
 
-```
-myportfolio/
-├── public/
-│   ├── favicon.svg          # Custom SVG favicon with 'SAI' initials
-│   └── resume.pdf           # D. Rama Venkata Sai resume file
-├── src/
-│   ├── assets/              # Static assets & media
-│   ├── components/
-│   │   ├── About.jsx        # Academic background & interests
-│   │   ├── Contact.jsx      # Controlled EmailJS contact form
-│   │   ├── CursorGlow.jsx   # Subtle desktop cursor glow effect
-│   │   ├── Education.jsx    # Polytechnic timeline
-│   │   ├── Footer.jsx       # Personal footer & back-to-top
-│   │   ├── Hero.jsx         # Hero banner with code visual & CTA
-│   │   ├── Interests.jsx    # Web & Android specialization cards
-│   │   ├── Navbar.jsx       # Sticky header with active highlight
-│   │   ├── Projects.jsx     # AI Gym Fitness showcase card
-│   │   └── Skills.jsx       # Web dev, Android & tool cards
-│   ├── data/
-│   │   └── portfolio.js     # Centralized portfolio data
-│   ├── services/
-│   │   └── emailService.js  # EmailJS integration service
-│   ├── utils/
-│   │   └── animations.js    # Reusable Framer Motion variants
-│   ├── App.jsx              # Main application layout
-│   ├── index.css            # Tailwind directives, fonts & scrollbar
-│   └── main.jsx             # React DOM root entry
-├── .env.example             # Template for environment variables
-├── .gitignore               # Ignored files (node_modules, .env, dist)
-├── index.html               # Semantic HTML, Google Fonts & SEO tags
-├── package.json             # Dependencies and scripts
-├── postcss.config.js        # PostCSS configuration
-├── tailwind.config.js       # Custom colors, fonts, and shadows
-└── vite.config.js           # Vite build configuration
-```
+1. Open your terminal in the project directory:
+   ```powershell
+   cd d:\sai\web-Technologies\pojects\myportfolio
+   ```
+2. Install dependencies (if not already installed):
+   ```powershell
+   npm install
+   ```
+3. Start the development server:
+   ```powershell
+   npm run dev
+   ```
+4. Open [http://localhost:3000/](http://localhost:3000/) in your browser.
 
 ---
 
-## 🚀 Getting Started Locally
+## 📦 Production Build
 
-### 1. Prerequisites
-Ensure you have **Node.js** (v18 or higher) and **npm** installed on your machine.
-
-### 2. Clone the repository
-```bash
-git clone https://github.com/SAI-O73/gym-project.git
-cd myportfolio
-```
-
-### 3. Install dependencies
-```bash
-npm install
-```
-
-### 4. Configure environment variables (optional for contact form)
-Create a `.env` file in the root folder by copying `.env.example`:
-```bash
-cp .env.example .env
-```
-Update the keys with your credentials from [EmailJS](https://www.emailjs.com/):
-```env
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-```
-> **Note**: If environment variables are not supplied, the form will guide visitors to contact `dsaimtm@gmail.com` directly via their mail client.
-
-### 5. Start the development server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### 6. Build for production
-```bash
+To verify and generate the production bundle:
+```powershell
 npm run build
 ```
-The compiled output will be generated in the `dist/` directory.
-
----
-
-## 📧 EmailJS Setup Guide
-
-To enable live email delivery from the contact form:
-1. Sign up for a free account at [EmailJS](https://www.emailjs.com/).
-2. In the EmailJS dashboard, click **Add New Service** (select **Gmail** or your preferred email provider). Note the **Service ID**.
-3. Create an **Email Template** with the following template variables:
-   - `{{from_name}}` — Visitor's name
-   - `{{reply_to}}` — Visitor's email address
-   - `{{to_email}}` — Set default recipient to `dsaimtm@gmail.com`
-   - `{{subject}}` — Message subject
-   - `{{message}}` — Message content
-4. Go to **Account > API Keys** and copy your **Public Key**.
-5. Add these credentials to your `.env` file or in your Vercel Project Settings.
-
----
-
-## 🌐 Deployment to Vercel
-
-### Method 1: Deploy with Git (Recommended)
-1. Push your repository to GitHub:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: complete React portfolio for D. Rama Venkata Sai"
-   git branch -M main
-   git remote add origin https://github.com/SAI-O73/sai-portfolio.git
-   git push -u origin main
-   ```
-2. Log in to [Vercel](https://vercel.com/) and click **Add New Project**.
-3. Import your GitHub repository.
-4. Framework Preset: **Vite** (auto-detected).
-5. Build Command: `npm run build`
-6. Output Directory: `dist`
-7. Under **Environment Variables**, add:
-   - `VITE_EMAILJS_SERVICE_ID`
-   - `VITE_EMAILJS_TEMPLATE_ID`
-   - `VITE_EMAILJS_PUBLIC_KEY`
-8. Click **Deploy**. Vercel will build and assign a production URL.
+Compiled files will be in `dist/`.
 
 ---
 
@@ -165,8 +84,3 @@ To enable live email delivery from the contact form:
 - **Phone**: [+91 8919086393](tel:+918919086393)
 - **Social Username**: `@rowdysai2112`
 - **Featured Project**: [AI Gym Fitness](http://fitness-073.vercel.app/)
-
----
-
-## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).

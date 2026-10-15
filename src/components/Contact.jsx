@@ -13,7 +13,6 @@ import {
   FileText,
   ExternalLink,
   MapPin,
-  Clock,
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import { sendEmail } from '../services/emailService';
@@ -25,7 +24,7 @@ export default function Contact() {
     email: '',
     subject: '',
     message: '',
-    hp_field: '', // Honeypot field for bot/spam protection
+    hp_field: '', // Anti-spam honeypot
   });
 
   const [errors, setErrors] = useState({});
@@ -36,7 +35,6 @@ export default function Contact() {
     isConfigMissing: false,
   });
 
-  // Basic email format validator
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
@@ -73,7 +71,6 @@ export default function Contact() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear field-specific error as user types
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -82,9 +79,8 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check honeypot spam filter
     if (formData.hp_field) {
-      console.warn('Spam submission detected via honeypot.');
+      console.warn('Spam submission detected.');
       return;
     }
 
@@ -109,7 +105,6 @@ export default function Contact() {
           error: null,
           isConfigMissing: false,
         });
-        // Reset form
         setFormData({
           name: '',
           email: '',
@@ -136,10 +131,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-navy-950/90">
-      {/* Background glow accents */}
-      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/60">
+      {/* Decorative ambient gradients */}
+      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-royal-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -148,17 +143,17 @@ export default function Contact() {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-60px' }}
           className="text-center max-w-3xl mx-auto mb-16 space-y-3"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium text-cyan-400 bg-cyan-400/10 border border-cyan-400/20">
-            <span className="text-cyan-400">//</span>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold text-blue-700 bg-blue-50 border border-blue-200">
+            <span>//</span>
             <span>06. REACH OUT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-100 tracking-tight">
-            Get In <span className="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">Touch</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-navy-900 tracking-tight">
+            Get In <span className="text-blue-600">Touch</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base font-sans">
+          <p className="text-slate-600 text-sm sm:text-base font-sans">
             Have a question, feedback on my projects, or an internship opportunity? Send a message directly.
           </p>
         </motion.div>
@@ -166,40 +161,40 @@ export default function Contact() {
         {/* Contact Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Direct Contact Info & Channels */}
+          {/* Left Column: Direct Contact Info Cards */}
           <motion.div
             variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: '-40px' }}
             className="lg:col-span-5 space-y-6 text-left"
           >
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold font-heading text-slate-100">
+            <div className="space-y-3">
+              <h3 className="text-2xl font-bold font-heading text-navy-900">
                 Let's talk code & opportunities
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                I am actively seeking internship roles and collaborative project opportunities in web development and Android programming. Feel free to contact me via the form or through my direct contacts below.
+              <p className="text-slate-600 text-sm leading-relaxed font-sans">
+                I am actively seeking internship roles and collaborative project opportunities in web development and Android programming. Feel free to reach out via the form or through my direct contacts below.
               </p>
             </div>
 
             {/* Direct Contact Cards */}
-            <div className="space-y-3 pt-2">
+            <div className="space-y-3 pt-1">
               
               {/* Email Card */}
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="group flex items-start gap-4 p-4 rounded-2xl glass-panel bg-navy-900/80 border border-navy-700/80 hover:border-cyan-400/40 transition-all duration-300"
+                className="group flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 shadow-premium hover:shadow-premium-hover transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5 overflow-hidden">
-                  <div className="text-xs font-mono text-slate-400">Email Address</div>
-                  <div className="text-sm sm:text-base font-semibold text-slate-100 group-hover:text-cyan-400 transition-colors truncate">
+                  <div className="text-xs font-mono font-medium text-slate-500">Email Address</div>
+                  <div className="text-sm sm:text-base font-semibold text-navy-900 group-hover:text-blue-600 transition-colors truncate">
                     {personalInfo.email}
                   </div>
-                  <div className="text-[11px] text-cyan-400/80 font-mono flex items-center gap-1">
+                  <div className="text-[11px] text-blue-600 font-mono flex items-center gap-1 font-medium">
                     <span>Direct recipient</span>
                     <ExternalLink className="w-3 h-3" />
                   </div>
@@ -209,17 +204,17 @@ export default function Contact() {
               {/* Phone Card */}
               <a
                 href={`tel:+91${personalInfo.phone}`}
-                className="group flex items-start gap-4 p-4 rounded-2xl glass-panel bg-navy-900/80 border border-navy-700/80 hover:border-cyan-400/40 transition-all duration-300"
+                className="group flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 shadow-premium hover:shadow-premium-hover transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono text-slate-400">Phone Number</div>
-                  <div className="text-sm sm:text-base font-semibold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                  <div className="text-xs font-mono font-medium text-slate-500">Phone Number</div>
+                  <div className="text-sm sm:text-base font-semibold text-navy-900 group-hover:text-blue-600 transition-colors">
                     {personalInfo.formattedPhone}
                   </div>
-                  <div className="text-[11px] text-slate-400 font-mono">
+                  <div className="text-[11px] text-slate-500 font-mono">
                     Call / WhatsApp
                   </div>
                 </div>
@@ -230,17 +225,17 @@ export default function Contact() {
                 href={personalInfo.socialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-4 rounded-2xl glass-panel bg-navy-900/80 border border-navy-700/80 hover:border-cyan-400/40 transition-all duration-300"
+                className="group flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 shadow-premium hover:shadow-premium-hover transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                   <AtSign className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono text-slate-400">Social Media</div>
-                  <div className="text-sm sm:text-base font-semibold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                  <div className="text-xs font-mono font-medium text-slate-500">Social Media</div>
+                  <div className="text-sm sm:text-base font-semibold text-navy-900 group-hover:text-blue-600 transition-colors">
                     @{personalInfo.socialUsername}
                   </div>
-                  <div className="text-[11px] text-cyan-400/80 font-mono flex items-center gap-1">
+                  <div className="text-[11px] text-blue-600 font-mono flex items-center gap-1 font-medium">
                     <span>Configurable Profile URL</span>
                     <ExternalLink className="w-3 h-3" />
                   </div>
@@ -248,10 +243,10 @@ export default function Contact() {
               </a>
 
               {/* College Location Note */}
-              <div className="p-4 rounded-2xl bg-navy-950/60 border border-navy-700/60 flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                <div className="text-xs text-slate-400 leading-relaxed font-sans">
-                  <span className="font-semibold text-slate-300 block">
+              <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                <div className="text-xs text-slate-600 leading-relaxed font-sans">
+                  <span className="font-bold text-navy-900 block font-heading">
                     {personalInfo.college}
                   </span>
                   {personalInfo.location}
@@ -261,21 +256,21 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right Column: Controlled EmailJS Contact Form */}
+          {/* Right Column: Controlled Contact Form */}
           <motion.div
             variants={fadeInRight}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: '-40px' }}
             className="lg:col-span-7"
           >
-            <div className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 bg-navy-900/90 border border-navy-700 shadow-2xl relative">
+            <div className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-white border border-slate-200 shadow-premium relative">
               
-              <h3 className="text-xl font-bold font-heading text-slate-100 mb-2 text-left">
+              <h3 className="text-xl font-bold font-heading text-navy-900 mb-2 text-left">
                 Send a Message
               </h3>
-              <p className="text-xs sm:text-sm text-slate-400 text-left mb-6 font-sans">
-                Messages are routed through EmailJS directly to <span className="text-cyan-400 font-mono">{personalInfo.email}</span>.
+              <p className="text-xs sm:text-sm text-slate-500 text-left mb-6 font-sans">
+                Messages are routed through EmailJS directly to <span className="text-blue-600 font-mono font-medium">{personalInfo.email}</span>.
               </p>
 
               {/* Status Notifications */}
@@ -285,13 +280,13 @@ export default function Contact() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-start gap-3 text-left"
+                    className="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm flex items-start gap-3 text-left"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-semibold">Message Delivered Successfully!</div>
-                      <div className="text-xs text-emerald-200/90 mt-0.5">
-                        Thank you for reaching out. I have received your note and will get back to you shortly at your email.
+                      <div className="font-bold font-heading">Message Delivered Successfully!</div>
+                      <div className="text-xs text-emerald-700 mt-0.5 leading-relaxed font-sans">
+                        Thank you for reaching out. I have received your message and will reply shortly at your email address.
                       </div>
                     </div>
                   </motion.div>
@@ -302,12 +297,12 @@ export default function Contact() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-sm flex items-start gap-3 text-left"
+                    className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-sm flex items-start gap-3 text-left"
                   >
-                    <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                     <div className="space-y-2">
-                      <div className="font-semibold">Delivery Notice</div>
-                      <div className="text-xs text-rose-200/90">
+                      <div className="font-bold font-heading">Delivery Notice</div>
+                      <div className="text-xs text-rose-700 leading-relaxed font-sans">
                         {status.error}
                       </div>
                       {status.isConfigMissing && (
@@ -316,7 +311,7 @@ export default function Contact() {
                             href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(
                               formData.subject || 'Portfolio Inquiry'
                             )}&body=${encodeURIComponent(formData.message || '')}`}
-                            className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 underline hover:text-cyan-200"
+                            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 underline hover:text-blue-800"
                           >
                             <span>Click here to open your email client</span>
                             <ExternalLink className="w-3 h-3" />
@@ -328,11 +323,11 @@ export default function Contact() {
                 )}
               </AnimatePresence>
 
-              {/* The Form */}
+              {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4 text-left" noValidate>
-                {/* Honeypot field (hidden from screen reader and visual layout) */}
+                {/* Honeypot field */}
                 <div className="hidden" aria-hidden="true">
-                  <label htmlFor="hp_field">Do not fill this field</label>
+                  <label htmlFor="hp_field">Do not fill this</label>
                   <input
                     type="text"
                     id="hp_field"
@@ -344,19 +339,19 @@ export default function Contact() {
                   />
                 </div>
 
-                {/* Name & Email Row */}
+                {/* Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   
-                  {/* Full Name Field */}
+                  {/* Full Name */}
                   <div className="space-y-1.5">
                     <label
                       htmlFor="name"
-                      className="block text-xs font-mono text-slate-300 font-medium"
+                      className="block text-xs font-mono font-semibold text-slate-700"
                     >
-                      Full Name <span className="text-cyan-400">*</span>
+                      Full Name <span className="text-blue-600">*</span>
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                         <User className="w-4 h-4" />
                       </div>
                       <input
@@ -367,32 +362,32 @@ export default function Contact() {
                         onChange={handleChange}
                         disabled={status.submitting}
                         placeholder="e.g. John Doe"
-                        className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-navy-950 border ${
+                        className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50/60 border ${
                           errors.name
-                            ? 'border-rose-500 focus:ring-rose-500'
-                            : 'border-navy-700 focus:border-cyan-400'
-                        } text-slate-100 placeholder-slate-500 text-sm transition-all focus:outline-none focus:ring-1 focus:ring-cyan-400 disabled:opacity-60`}
+                            ? 'border-rose-400 focus:ring-rose-200'
+                            : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-100'
+                        } text-slate-900 placeholder-slate-400 text-sm transition-all focus:outline-none disabled:opacity-60`}
                         aria-invalid={errors.name ? 'true' : 'false'}
                         aria-describedby={errors.name ? 'name-error' : undefined}
                       />
                     </div>
                     {errors.name && (
-                      <p id="name-error" className="text-xs text-rose-400 font-mono">
+                      <p id="name-error" className="text-xs text-rose-500 font-mono">
                         {errors.name}
                       </p>
                     )}
                   </div>
 
-                  {/* Email Field */}
+                  {/* Email */}
                   <div className="space-y-1.5">
                     <label
                       htmlFor="email"
-                      className="block text-xs font-mono text-slate-300 font-medium"
+                      className="block text-xs font-mono font-semibold text-slate-700"
                     >
-                      Email Address <span className="text-cyan-400">*</span>
+                      Email Address <span className="text-blue-600">*</span>
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                         <Mail className="w-4 h-4" />
                       </div>
                       <input
@@ -403,17 +398,17 @@ export default function Contact() {
                         onChange={handleChange}
                         disabled={status.submitting}
                         placeholder="e.g. john@example.com"
-                        className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-navy-950 border ${
+                        className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50/60 border ${
                           errors.email
-                            ? 'border-rose-500 focus:ring-rose-500'
-                            : 'border-navy-700 focus:border-cyan-400'
-                        } text-slate-100 placeholder-slate-500 text-sm transition-all focus:outline-none focus:ring-1 focus:ring-cyan-400 disabled:opacity-60`}
+                            ? 'border-rose-400 focus:ring-rose-200'
+                            : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-100'
+                        } text-slate-900 placeholder-slate-400 text-sm transition-all focus:outline-none disabled:opacity-60`}
                         aria-invalid={errors.email ? 'true' : 'false'}
                         aria-describedby={errors.email ? 'email-error' : undefined}
                       />
                     </div>
                     {errors.email && (
-                      <p id="email-error" className="text-xs text-rose-400 font-mono">
+                      <p id="email-error" className="text-xs text-rose-500 font-mono">
                         {errors.email}
                       </p>
                     )}
@@ -421,16 +416,16 @@ export default function Contact() {
 
                 </div>
 
-                {/* Subject Field */}
+                {/* Subject */}
                 <div className="space-y-1.5">
                   <label
                     htmlFor="subject"
-                    className="block text-xs font-mono text-slate-300 font-medium"
+                    className="block text-xs font-mono font-semibold text-slate-700"
                   >
-                    Subject <span className="text-cyan-400">*</span>
+                    Subject <span className="text-blue-600">*</span>
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                       <FileText className="w-4 h-4" />
                     </div>
                     <input
@@ -441,32 +436,32 @@ export default function Contact() {
                       onChange={handleChange}
                       disabled={status.submitting}
                       placeholder="e.g. Internship Inquiry / College Project Review"
-                      className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-navy-950 border ${
+                      className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50/60 border ${
                         errors.subject
-                          ? 'border-rose-500 focus:ring-rose-500'
-                          : 'border-navy-700 focus:border-cyan-400'
-                      } text-slate-100 placeholder-slate-500 text-sm transition-all focus:outline-none focus:ring-1 focus:ring-cyan-400 disabled:opacity-60`}
+                          ? 'border-rose-400 focus:ring-rose-200'
+                          : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-100'
+                      } text-slate-900 placeholder-slate-400 text-sm transition-all focus:outline-none disabled:opacity-60`}
                       aria-invalid={errors.subject ? 'true' : 'false'}
                       aria-describedby={errors.subject ? 'subject-error' : undefined}
                     />
                   </div>
                   {errors.subject && (
-                    <p id="subject-error" className="text-xs text-rose-400 font-mono">
+                    <p id="subject-error" className="text-xs text-rose-500 font-mono">
                       {errors.subject}
                     </p>
                   )}
                 </div>
 
-                {/* Message Field */}
+                {/* Message */}
                 <div className="space-y-1.5">
                   <label
                     htmlFor="message"
-                    className="block text-xs font-mono text-slate-300 font-medium"
+                    className="block text-xs font-mono font-semibold text-slate-700"
                   >
-                    Message <span className="text-cyan-400">*</span>
+                    Message <span className="text-blue-600">*</span>
                   </label>
                   <div className="relative">
-                    <div className="absolute top-3 left-3.5 pointer-events-none text-slate-500">
+                    <div className="absolute top-3 left-3.5 pointer-events-none text-slate-400">
                       <MessageSquare className="w-4 h-4" />
                     </div>
                     <textarea
@@ -477,17 +472,17 @@ export default function Contact() {
                       onChange={handleChange}
                       disabled={status.submitting}
                       placeholder="Write your message here..."
-                      className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-navy-950 border ${
+                      className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50/60 border ${
                         errors.message
-                          ? 'border-rose-500 focus:ring-rose-500'
-                          : 'border-navy-700 focus:border-cyan-400'
-                      } text-slate-100 placeholder-slate-500 text-sm transition-all focus:outline-none focus:ring-1 focus:ring-cyan-400 resize-none disabled:opacity-60`}
+                          ? 'border-rose-400 focus:ring-rose-200'
+                          : 'border-slate-200 focus:border-blue-600 focus:ring-4 focus:ring-blue-100'
+                      } text-slate-900 placeholder-slate-400 text-sm transition-all focus:outline-none resize-none disabled:opacity-60`}
                       aria-invalid={errors.message ? 'true' : 'false'}
                       aria-describedby={errors.message ? 'message-error' : undefined}
                     />
                   </div>
                   {errors.message && (
-                    <p id="message-error" className="text-xs text-rose-400 font-mono">
+                    <p id="message-error" className="text-xs text-rose-500 font-mono">
                       {errors.message}
                     </p>
                   )}
@@ -498,16 +493,16 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status.submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm text-navy-950 bg-gradient-to-r from-cyan-400 to-sky-300 hover:from-cyan-300 hover:to-sky-200 disabled:opacity-60 disabled:cursor-not-allowed shadow-glow-cyan transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed shadow-md shadow-blue-500/25 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98]"
                   >
                     {status.submitting ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin text-navy-950" />
+                        <Loader2 className="w-4 h-4 animate-spin text-white" />
                         <span>Sending Message...</span>
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4 text-navy-950" />
+                        <Send className="w-4 h-4 text-white" />
                         <span>Send Message</span>
                       </>
                     )}
