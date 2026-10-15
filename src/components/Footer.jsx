@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ArrowUp,
   Github,
   Mail,
   Phone,
@@ -13,13 +12,6 @@ import { personalInfo, navLinks } from '../data/portfolio';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
@@ -141,19 +133,6 @@ export default function Footer() {
                 <Github className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>github.com/SAI-O73</span>
               </a>
-            </div>
-
-            {/* Back to Top Button */}
-            <div className="pt-3">
-              <button
-                type="button"
-                onClick={scrollToTop}
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-blue-700 bg-blue-50 border border-blue-200 hover:bg-blue-600 hover:text-white transition-all duration-200 shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                aria-label="Back to top of the page"
-              >
-                <ArrowUp className="w-3.5 h-3.5" />
-                <span>Back to Top</span>
-              </button>
             </div>
           </div>
 
