@@ -13,20 +13,6 @@ import { personalInfo, navLinks } from '../data/portfolio';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      const navOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
 
   return (
     <footer className="relative bg-white border-t border-slate-200 pt-16 pb-12 overflow-hidden text-left">
@@ -35,7 +21,6 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-150">
           
           {/* Column 1: Personal Branding & Role */}

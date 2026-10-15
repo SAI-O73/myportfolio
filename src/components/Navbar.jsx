@@ -53,34 +53,26 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
 
-  // Prevent background scrolling when mobile drawer is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [mobileMenuOpen]);
-
   const handleNavClick = (e, href) => {
-    e.preventDefault();
     const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      const navOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+    setActiveSection(targetId);
+    setMobileMenuOpen(false);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+    if (window.innerWidth >= 768) return;
+
+    e.preventDefault();
+    window.history.pushState(null, '', href);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const element = document.getElementById(targetId);
+        if (!element) return;
+
+        const scrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, element.getBoundingClientRect().top + window.scrollY - 80);
+        document.documentElement.style.scrollBehavior = scrollBehavior;
       });
-      setActiveSection(targetId);
-      setMobileMenuOpen(false);
-    }
+    });
   };
 
   return (

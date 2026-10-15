@@ -8,6 +8,10 @@
     color-scheme: light;
   }
 
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
   body {
     background-color: #FFFFFF;
     color: #475569;

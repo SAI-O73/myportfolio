@@ -16,20 +16,6 @@ import { personalInfo } from '../data/portfolio';
 import { fadeInUp, staggerContainer, floatMotion, floatReverseMotion } from '../utils/animations';
 
 export default function Hero() {
-  const handleScrollTo = (e, targetId) => {
-    e.preventDefault();
-    const el = document.getElementById(targetId);
-    if (el) {
-      const navOffset = 80;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section
       id="home"
@@ -103,7 +89,6 @@ export default function Hero() {
               {/* Button 1: View My Projects */}
               <a
                 href="#projects"
-                onClick={(e) => handleScrollTo(e, 'projects')}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 <FolderGit2 className="w-4 h-4" />
@@ -113,7 +98,6 @@ export default function Hero() {
               {/* Button 2: Contact Me */}
               <a
                 href="#contact"
-                onClick={(e) => handleScrollTo(e, 'contact')}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm text-navy-900 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98] shadow-sm"
               >
                 <Mail className="w-4 h-4 text-blue-600" />
@@ -252,7 +236,6 @@ export default function Hero() {
         <div className="pt-16 flex justify-center">
           <a
             href="#about"
-            onClick={(e) => handleScrollTo(e, 'about')}
             className="group flex flex-col items-center gap-2 text-slate-400 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg p-2"
             aria-label="Scroll to About Section"
           >
