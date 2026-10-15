@@ -50,15 +50,15 @@ export default function About() {
               {/* Main Profile Card */}
               <div className="relative rounded-3xl bg-white border border-slate-200 shadow-premium p-6 sm:p-8 space-y-6 text-left">
                 
-                {/* Visual Avatar Placeholder Frame */}
-                <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-blue-50 p-2 border-2 border-blue-200 flex flex-col items-center justify-center text-center group">
-                  <div className="w-full h-full rounded-xl bg-white border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden shadow-inner">
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-heading text-4xl font-extrabold shadow-md shadow-blue-500/25 z-10 group-hover:scale-105 transition-transform duration-300">
-                      {personalInfo.initials}
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-500 mt-2 font-medium z-10">
-                      D. Rama Venkata Sai
-                    </span>
+                {/* Visual Profile Photo Frame */}
+                <div className="relative mx-auto w-40 h-40 sm:w-48 sm:h-48 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-blue-50 p-2 border-2 border-blue-200 flex flex-col items-center justify-center text-center group shadow-sm">
+                  <div className="w-full h-full rounded-xl overflow-hidden relative shadow-inner bg-slate-100">
+                    <img
+                      src={personalInfo.profileImage}
+                      alt={personalInfo.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
                   </div>
 
                   {/* Corner Accent Badges */}

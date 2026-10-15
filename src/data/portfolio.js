@@ -19,6 +19,7 @@ export const personalInfo = {
   instagramUrl: "https://www.instagram.com/rowdysai_2112?stkn=MXViazVqeGYwYmttaQ%3D%3D",
   githubUrl: "https://github.com/SAI-O73",
   resumePath: "/resume.pdf",
+  profileImage: "/profile.jpg",
   heroDescription:
     "I'm a final-year Computer Science diploma student passionate about building modern web experiences and exploring Android application development. I enjoy transforming ideas into functional, user-friendly applications while continuously improving my development skills.",
   aboutParagraphs: [
