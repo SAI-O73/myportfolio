@@ -82,5 +82,5 @@ Compiled files will be in `dist/`.
 - **Course**: Final-Year Diploma Student in Computer Science
 - **Email**: [dsaimtm@gmail.com](mailto:dsaimtm@gmail.com)
 - **Phone**: [+91 8919086393](tel:+918919086393)
-- **Social Username**: `@rowdysai2112`
+- **Instagram**: [@rowdysai_2112](https://www.instagram.com/rowdysai_2112?stkn=MXViazVqeGYwYmttaQ%3D%3D)
 - **Featured Project**: [AI Gym Fitness](http://fitness-073.vercel.app/)

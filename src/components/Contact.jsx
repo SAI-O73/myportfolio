@@ -7,7 +7,7 @@ import {
   CheckCircle2,
   AlertCircle,
   Loader2,
-  AtSign,
+  Instagram,
   User,
   MessageSquare,
   FileText,
@@ -220,23 +220,23 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Social Media Card */}
+              {/* Instagram Card */}
               <a
-                href={personalInfo.socialUrl}
+                href={personalInfo.instagramUrl || personalInfo.socialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 shadow-premium hover:shadow-premium-hover transition-all duration-300"
               >
                 <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
-                  <AtSign className="w-5 h-5" />
+                  <Instagram className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
-                  <div className="text-xs font-mono font-medium text-slate-500">Social Media</div>
+                  <div className="text-xs font-mono font-medium text-slate-500">Instagram</div>
                   <div className="text-sm sm:text-base font-semibold text-navy-900 group-hover:text-blue-600 transition-colors">
                     @{personalInfo.socialUsername}
                   </div>
                   <div className="text-[11px] text-blue-600 font-mono flex items-center gap-1 font-medium">
-                    <span>Configurable Profile URL</span>
+                    <span>Follow on Instagram</span>
                     <ExternalLink className="w-3 h-3" />
                   </div>
                 </div>

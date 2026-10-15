@@ -4,7 +4,7 @@ import {
   Github,
   Mail,
   Phone,
-  AtSign,
+  Instagram,
   GraduationCap,
   MapPin,
   ExternalLink,
@@ -123,13 +123,13 @@ export default function Footer() {
               </a>
 
               <a
-                href={personalInfo.socialUrl}
+                href={personalInfo.instagramUrl || personalInfo.socialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-slate-600 hover:text-blue-600 transition-colors font-medium"
               >
-                <AtSign className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>@{personalInfo.socialUsername} (Profile)</span>
+                <Instagram className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>@{personalInfo.socialUsername}</span>
               </a>
 
               <a

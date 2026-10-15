@@ -14,8 +14,9 @@ export const personalInfo = {
   email: "dsaimtm@gmail.com",
   phone: "8919086393",
   formattedPhone: "+91 8919086393",
-  socialUsername: "rowdysai2112",
-  socialUrl: "https://github.com/SAI-O73", // Configurable profile URL
+  socialUsername: "rowdysai_2112",
+  socialUrl: "https://www.instagram.com/rowdysai_2112?stkn=MXViazVqeGYwYmttaQ%3D%3D",
+  instagramUrl: "https://www.instagram.com/rowdysai_2112?stkn=MXViazVqeGYwYmttaQ%3D%3D",
   githubUrl: "https://github.com/SAI-O73",
   resumePath: "/resume.pdf",
   heroDescription:
