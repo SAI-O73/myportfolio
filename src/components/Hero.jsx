@@ -59,9 +59,6 @@ export default function Hero() {
 
             {/* Main Greeting & Name */}
             <motion.div variants={fadeInUp} className="space-y-2">
-              <p className="font-mono text-sm sm:text-base text-slate-500 font-medium">
-                Hello, World! I am
-              </p>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-heading text-navy-900 leading-[1.1]">
                 <span className="block text-navy-900">D. Rama Venkata</span>
                 <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
