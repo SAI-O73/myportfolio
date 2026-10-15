@@ -1,5 +1,44 @@
 import emailjs from '@emailjs/browser';
 
+const recipientEmail = 'dsaimtm@gmail.com';
+
+async function sendWithFormSubmit({ name, email, subject, message }) {
+  try {
+    const response = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        _replyto: email,
+        _subject: subject,
+        subject,
+        message,
+        _template: 'table',
+      }),
+    });
+    const result = await response.json();
+
+    if (!response.ok || result.success === false || result.success === 'false') {
+      throw new Error(result.message || `Form service returned status ${response.status}.`);
+    }
+
+    return {
+      success: true,
+      message: `${result.message || 'Your message was submitted.'} If this is the first submission, confirm the verification email sent to ${recipientEmail} to activate delivery.`,
+    };
+  } catch (error) {
+    console.error('[EmailService] Error sending email via FormSubmit:', error);
+    return {
+      success: false,
+      message: error?.message || 'Failed to send message. Please use the email link below.',
+    };
+  }
+}
+
 /**
  * Sends a message via EmailJS SDK using client-side environment variables.
  *
@@ -24,23 +63,14 @@ export async function sendEmail({ name, email, subject, message }) {
     val === 'your_public_key';
 
   if (isPlaceholder(serviceId) || isPlaceholder(templateId) || isPlaceholder(publicKey)) {
-    console.warn(
-      '[EmailService] EmailJS is not yet configured with valid credentials in .env.\n' +
-      'Please supply VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY.'
-    );
-    return {
-      success: false,
-      isConfigMissing: true,
-      message:
-        'Email service is not yet configured with credentials. You can reach out directly at dsaimtm@gmail.com.',
-    };
+    return sendWithFormSubmit({ name, email, subject, message });
   }
 
   try {
     const templateParams = {
       from_name: name,
       reply_to: email,
-      to_email: 'dsaimtm@gmail.com',
+      to_email: recipientEmail,
       subject: subject,
       message: message,
     };

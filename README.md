@@ -63,6 +63,16 @@ Designed for **D. Rama Venkata Sai**, a final-year Diploma in Computer Science s
    ```
 4. Open [http://localhost:3000/](http://localhost:3000/) in your browser.
 
+## Contact Form Email Setup
+
+The contact form sends through EmailJS when its credentials are configured. Otherwise it uses FormSubmit, which sends directly to `dsaimtm@gmail.com` without an API key. FormSubmit requires the inbox owner to confirm the address after the first submission before delivery is activated.
+
+To use EmailJS instead, create an EmailJS service and template, then configure the template to use `{{to_email}}` as the recipient and `{{reply_to}}` as the reply-to address. The template parameters are `from_name`, `reply_to`, `to_email`, `subject`, and `message`.
+
+For local development, copy `.env.example` to `.env.local`, replace the placeholders with your EmailJS service ID, template ID, and public key, then restart Vite. Do not commit `.env.local`.
+
+For the deployed site, add `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` to the Vercel project's environment variables and redeploy to use EmailJS. Without these values, the form uses FormSubmit and requires its one-time email confirmation.
+
 ---
 
 ## 📦 Production Build

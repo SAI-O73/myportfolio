@@ -32,7 +32,7 @@ export default function Contact() {
     submitting: false,
     success: false,
     error: null,
-    isConfigMissing: false,
+    message: null,
   });
 
   const validateEmail = (email) => {
@@ -88,7 +88,7 @@ export default function Contact() {
       return;
     }
 
-    setStatus({ submitting: true, success: false, error: null, isConfigMissing: false });
+    setStatus({ submitting: true, success: false, error: null, message: null });
 
     try {
       const result = await sendEmail({
@@ -103,7 +103,7 @@ export default function Contact() {
           submitting: false,
           success: true,
           error: null,
-          isConfigMissing: false,
+          message: result.message,
         });
         setFormData({
           name: '',
@@ -117,7 +117,7 @@ export default function Contact() {
           submitting: false,
           success: false,
           error: result.message,
-          isConfigMissing: !!result.isConfigMissing,
+          message: null,
         });
       }
     } catch (err) {
@@ -125,10 +125,20 @@ export default function Contact() {
         submitting: false,
         success: false,
         error: err.message || 'An unexpected error occurred. Please try again.',
-        isConfigMissing: false,
+        message: null,
       });
     }
   };
+
+  const emailFallbackBody = [
+    `Name: ${formData.name}`,
+    `Email: ${formData.email}`,
+    '',
+    formData.message,
+  ].join('\n');
+  const emailFallbackHref = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+    formData.subject || 'Portfolio Inquiry'
+  )}&body=${encodeURIComponent(emailFallbackBody)}`;
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/60">
@@ -284,9 +294,9 @@ export default function Contact() {
                   >
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold font-heading">Message Delivered Successfully!</div>
+                      <div className="font-bold font-heading">Message Submitted</div>
                       <div className="text-xs text-emerald-700 mt-0.5 leading-relaxed font-sans">
-                        Thank you for reaching out. I have received your message and will reply shortly at your email address.
+                        {status.message || 'Thank you for reaching out. I will reply shortly.'}
                       </div>
                     </div>
                   </motion.div>
@@ -305,19 +315,15 @@ export default function Contact() {
                       <div className="text-xs text-rose-700 leading-relaxed font-sans">
                         {status.error}
                       </div>
-                      {status.isConfigMissing && (
-                        <div className="pt-1">
-                          <a
-                            href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(
-                              formData.subject || 'Portfolio Inquiry'
-                            )}&body=${encodeURIComponent(formData.message || '')}`}
-                            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 underline hover:text-blue-800"
-                          >
-                            <span>Click here to open your email client</span>
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        </div>
-                      )}
+                      <div className="pt-1">
+                        <a
+                          href={emailFallbackHref}
+                          className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 underline hover:text-blue-800"
+                        >
+                          <span>Open your email app with this message</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
                     </div>
                   </motion.div>
                 )}
