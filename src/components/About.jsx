@@ -53,7 +53,7 @@ export default function About() {
                 {/* Visual Avatar Placeholder Frame */}
                 <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-blue-50 p-2 border-2 border-blue-200 flex flex-col items-center justify-center text-center group">
                   <div className="w-full h-full rounded-xl bg-white border border-slate-100 flex flex-col items-center justify-center relative overflow-hidden shadow-inner">
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-heading text-3xl font-extrabold shadow-md shadow-blue-500/25 z-10 group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-heading text-4xl font-extrabold shadow-md shadow-blue-500/25 z-10 group-hover:scale-105 transition-transform duration-300">
                       {personalInfo.initials}
                     </div>
                     <span className="text-[11px] font-mono text-slate-500 mt-2 font-medium z-10">

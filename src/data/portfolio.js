@@ -6,7 +6,7 @@
 export const personalInfo = {
   name: "D. Rama Venkata Sai",
   preferredName: "Sai",
-  initials: "SAI",
+  initials: "S",
   role: "Aspiring Web Developer | Android Programming Enthusiast",
   educationStatus: "Final-Year Diploma Student in Computer Science",
   college: "AANM & VVRSR Polytechnic College, Gudlavalleru",

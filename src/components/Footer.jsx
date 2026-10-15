@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-md shadow-blue-500/20">
-                <span className="font-heading font-extrabold text-sm tracking-wider text-white">
+                <span className="font-heading font-extrabold text-xl text-white">
                   {personalInfo.initials}
                 </span>
               </div>
