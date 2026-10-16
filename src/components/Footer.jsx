@@ -129,10 +129,10 @@ export default function Footer() {
             &copy; {currentYear} {personalInfo.name}. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-1.5 text-slate-500">
-            <span>Designed and developed by</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-slate-500 leading-relaxed">
+            <span>Designed &amp; developed by</span>
             <span className="text-blue-600 font-bold">{personalInfo.preferredName}</span>
-            <span>with React & Vite</span>
+            <span>with React &amp; Vite</span>
           </div>
         </div>
 
