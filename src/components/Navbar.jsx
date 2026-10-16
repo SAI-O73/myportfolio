@@ -107,7 +107,7 @@ export default function Navbar() {
               </span>
               <span className="text-[11px] font-mono text-blue-600 flex items-center gap-1.5 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                CS Diploma Final-Year
+                CSE Diploma Final-Year
               </span>
             </div>
           </a>

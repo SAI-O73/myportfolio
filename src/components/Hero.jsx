@@ -163,7 +163,7 @@ export default function Hero() {
                 </div>
                 <div className="pl-4">
                   <span className="text-slate-600">education:</span>{' '}
-                  <span className="text-emerald-600 font-medium">"Diploma in CS (Final Year)"</span>,
+                  <span className="text-emerald-600 font-medium">"Diploma in CSE (Final Year)"</span>,
                 </div>
                 <div className="pl-4">
                   <span className="text-slate-600">interests:</span> [
